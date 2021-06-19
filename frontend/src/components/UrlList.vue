@@ -12,7 +12,14 @@
       <tbody class="text-center mb-4">
         <tr v-for="url in urls" :key="url._id">
           <td>{{ url.full }}</td>
-          <td>{{ url.short }}</td>
+          <td>
+            <a
+              :href="url.short"
+              class="text-saphire"
+              @click="increment_clicks(url._id)"
+              >{{ url.short }}</a
+            >
+          </td>
           <td>{{ url.clicks }}</td>
           <td>
             <button
@@ -53,7 +60,15 @@
         store.dispatch("delete_url", id);
       };
 
-      return { urls: computed(() => store.state.urls), delete_url };
+      const increment_clicks = (id: number) => {
+        store.dispatch("increment_clicks", id);
+      };
+
+      return {
+        urls: computed(() => store.state.urls),
+        delete_url,
+        increment_clicks,
+      };
     },
   });
 </script>

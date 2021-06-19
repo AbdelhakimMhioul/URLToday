@@ -8,6 +8,7 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "mongoose": "^5.12.5",
+    "node-url-shortener": "^1.1.11",
     "shortid": "^2.2.16",
     "shorturl": "^0.0.3"
   },

@@ -32,16 +32,20 @@ const store = createStore({
           console.log(err.message);
         });
     },
-    delete_url: ({ commit },  id) => {
+    delete_url: ({ commit }, id) => {
       axios
         .delete("http://localhost:3000/api/urls/" + id)
         .then((res) => {
-          console.log(res);
           store.dispatch("get_urls");
         })
         .catch((err) => {
           console.log(err.message);
         });
+    },
+    increment_clicks: ({ commit }, id) => {
+      axios.get("http://localhost:3000/api/urls/" + id).then((result) => {
+        store.dispatch("get_urls");
+      });
     }
   }, modules: {
 
